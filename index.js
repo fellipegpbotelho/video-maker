@@ -17,12 +17,16 @@ function askAndReturnPrefix() {
 }
 
 async function start() {
-  const content = {};
+  const content = {
+    maximumSentences: 7
+  };
 
   content.searchTerm = askAndReturnSearchTerm();
   content.prefix = askAndReturnPrefix();
 
   await robots.text(content);
+
+  console.log(JSON.stringify(content, null, 4));
 }
 
 start();
